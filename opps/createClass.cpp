@@ -2,6 +2,9 @@
 using namespace std;
 
 class Animal {
+    private:
+    int weight;
+
     public:
 
     int age;
@@ -13,6 +16,14 @@ class Animal {
 
     void sleep() {
         cout << "Sleeping" << endl;
+    }
+
+    int getWeight() {
+        return weight;
+    }
+
+    void setWeight(int w) {
+        weight = w;
     }
 };
 
@@ -28,6 +39,10 @@ int main() {
 
     dog.eat();
     dog.sleep();
+
+    dog.setWeight(15);
+    cout << dog.getWeight() << endl;
+
 
 
     
