@@ -20,7 +20,7 @@ class Node {
 
 // I want to insert a node right at the head of linked list
 
-void insertAtHead(Node* &head, int data){
+void insertAtHead(Node* &head, Node* &tail, int data){
     // step :- 1
     Node* newNode = new Node(data);
 
@@ -28,18 +28,31 @@ void insertAtHead(Node* &head, int data){
     newNode->next = head;
 
     // step:- 3
+    // head = newNode;
+    if(head == NULL){
+        tail = newNode;
+    }
     head = newNode;
 }
 
 // I want to insert a node right at the end of linked list
-void insertAtTail(Node* &tail, int data){
+void insertAtTail(Node* &head, Node* &tail, int data){
     // step:- 1
     Node* newNode = new Node(data);
 
     // step:- 2
-    tail->next = newNode;
+    // tail->next = newNode;
+    if(tail == NULL){
+        tail = newNode;
+    }
+    else {
+        tail->next = newNode;
+    }
 
     // step:- 3
+    if(head == NULL){
+        head = newNode;
+    }
     tail = newNode;
 }
 
@@ -54,16 +67,20 @@ void print (Node* &head) {
 
 int main() {
 
-    Node* head = new Node(10);
-    insertAtHead(head,20);
-    insertAtHead(head,30);
-    insertAtHead(head,40);
-    insertAtHead(head,50);
+    // Node* head = new Node(10);
+
+    Node* head = NULL;
+    Node* tail = NULL;
+    // insertAtHead(head,tail,20);
+    // insertAtHead(head,tail,30);
+    // insertAtHead(head,tail,40);
+    // insertAtHead(head,tail,50);
+    insertAtTail(head, tail, 90);
 
     print(head);
     cout << endl;
 
-    
+
 
     return 0;
 }
